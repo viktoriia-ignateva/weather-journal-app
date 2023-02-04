@@ -28,8 +28,16 @@ function listening() {
     console.log(`localhost: ${port}`)
 }
 
-const server = app.listen(port, listening);
+app.listen(port, listening);
 
 app.get('/projectData', (req, res) => {
     res.send(projectData)
+})
+
+app.post('/projectData', (req, res) => {
+    projectData.temperature = req.body.temperature
+    projectData.date = req.body.date
+    projectData.userResponse = req.body.userResponse
+    
+    res.sendStatus(200)
 })
