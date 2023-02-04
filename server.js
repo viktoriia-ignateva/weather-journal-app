@@ -29,3 +29,7 @@ function listening() {
 }
 
 const server = app.listen(port, listening);
+
+app.get('/projectData', (req, res) => {
+    res.send(projectData)
+})
