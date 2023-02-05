@@ -21,7 +21,11 @@ const getWeather = async (zipcode) => {
 }
 
 const onGenerate = () => {
-    getWeather(10707)
+    const zip = document.getElementById("zip").value
+
+    if (zip) {
+        getWeather(zip)
+    }
 }
 
 document.getElementById("generate").addEventListener("click", onGenerate);
