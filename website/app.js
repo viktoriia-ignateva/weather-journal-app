@@ -19,3 +19,9 @@ const getWeather = async (zipcode) => {
         console.log("error", error);
     }
 }
+
+const onGenerate = () => {
+    getWeather(10707)
+}
+
+document.getElementById("generate").addEventListener("click", onGenerate);
