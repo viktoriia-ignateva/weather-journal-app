@@ -1,6 +1,7 @@
 /* Global Variables */
 const key = 'e43bef9de1a014173942935fe5fccc3f'
 const openWeatherMapBaseUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${key}&units=metric&zip=`
+const postDataUrl = '/projectData'
 
 // Create a new date instance dynamically with JS
 let d = new Date();
@@ -18,6 +19,14 @@ const getWeather = async (zipcode) => {
     } catch (error) {
         console.log("error", error);
     }
+}
+
+const postData = async (projectData) => {
+    await fetch(postDataUrl, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(projectData),
+    });
 }
 
 const onGenerate = () => {
